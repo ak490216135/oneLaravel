@@ -39,7 +39,6 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
-                <h1>{{ $id }}</h1>
             </div>
         </div>
     </body>

@@ -11,11 +11,15 @@
 |
 */
 
+Route::any('/', function () {
+    return view('welcome');
+});
+
 // 带参数过滤条件的路由
-Route::get('/{id?}', function ($id) {
+/*Route::get('/{id?}', function ($id) {
     return view('welcome')->with('id', $id);
 })->where('id', '[0-9]+');
-
+*/
 // 带参数的路由
 /*Route::get('/{id?}', function ($id = '您没有输入参数') {
     return view('welcome')->with('id', $id);
@@ -45,3 +49,17 @@ Route::any('/test', function(){
 /*Route::group(['middleware' => ['web']], function () {
     //
 });*/
+
+Route::group(['prefix' => 'admin', ], function(){
+
+	Route::get('user/{id}', function($id){
+		return 'admin/user/' . $id;
+	});
+
+	Route::group(['prefix' => 'detail'], function(){
+		Route::get('hello/{id}', function($id){
+			return 'admin/detail/hello/' . $id;
+		});
+	});
+
+});
