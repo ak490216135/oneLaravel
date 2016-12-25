@@ -11,9 +11,7 @@
 |
 */
 
-Route::any('/', function () {
-    return view('welcome');
-});
+Route::any('/', 'IndexController@index');
 
 // 带参数过滤条件的路由
 /*Route::get('/{id?}', function ($id) {
@@ -50,16 +48,4 @@ Route::any('/test', function(){
     //
 });*/
 
-Route::group(['prefix' => 'admin', ], function(){
-
-	Route::get('user/{id}', function($id){
-		return 'admin/user/' . $id;
-	});
-
-	Route::group(['prefix' => 'detail'], function(){
-		Route::get('hello/{id}', function($id){
-			return 'admin/detail/hello/' . $id;
-		});
-	});
-
-});
+Route::resource('article', 'ArticleController');
