@@ -21,15 +21,19 @@
 
           <div class="row">
 
-            <div class="col-sm-8 blog-main">
+            <div class="col-sm-9 blog-main">
                 
-                <div>
-                    {{ $article->title }}
+                <div class="page-header">
+                    <h2>{{ $article->title }}</h2><small>{{ $article->date }}</small>
+                </div>
+
+                <div class="content">
+                    {{ $article->content }}
                 </div>
 
             </div><!-- /.blog-main -->
 
-            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="col-sm-3 blog-sidebar">
             
 @include('public.right')
 

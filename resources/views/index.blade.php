@@ -21,7 +21,7 @@
 
           <div class="row">
 
-            <div class="col-sm-8 blog-main">
+            <div class="col-sm-9 blog-main">
                 @foreach ($article as $v)
                 <div class="blog-post">
                     <h2 class="blog-post-title"><a href="/article/{{ $v->id }}">{{ $v->title }}</a></h2>
@@ -41,7 +41,7 @@
 
             </div><!-- /.blog-main -->
 
-            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="col-sm-3 blog-sidebar">
 
 @include('public.right')
 
