@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
+use App\Article;
 
 class ArticleController extends Controller
 {
@@ -16,8 +17,24 @@ class ArticleController extends Controller
 	public function create(){
 		return view('article/create');
 	}
-	public function store(){
-		return view('article/store');
+	public function store(Requests\StoreArticleRequest $request){
+
+		$input = $request->all();
+
+		var_dump($_POST);
+
+	    $article_insert = DB::table('article')->insert(
+	    	[
+	    		'title' => 'ttt',
+	    		'content' => 'contenttttttt'
+	    	]
+	    );
+
+	    if ($article_insert) {
+	        //return redirect('/');
+	    } else {
+	        return redirect()->back()->withInput()->withErrors('保存失败！');
+	    }
 	}
 	public function show($id){
 		$article = DB::table('article')->where('id', $id)->first();

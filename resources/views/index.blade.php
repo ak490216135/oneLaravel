@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
-        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/static/css/blog.css">
-        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+@include('public.head')
+
     </head>
     <body>
 
@@ -15,14 +12,16 @@
         <div class="container">
 
           <div class="blog-header">
-            <h1 class="blog-title">The Bootstrap Blog</h1>
-            <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+            <h1 class="blog-title">When knowing is enough</h1>
+            <p class="lead blog-description">当我们足够了解对方</p>
           </div>
 
           <div class="row">
 
             <div class="col-sm-9 blog-main">
+
                 @foreach ($article as $v)
+                
                 <div class="blog-post">
                     <h2 class="blog-post-title"><a href="/article/{{ $v->id }}">{{ $v->title }}</a></h2>
                     <p class="blog-post-meta">{{ $v->date }}</p>
@@ -32,12 +31,8 @@
 
                 @endforeach
 
-                <nav>
-                    <ul class="pager">
-                        <li><a href="#">Previous</a></li>
-                        <li><a href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{ $article->render() }}
+                
 
             </div><!-- /.blog-main -->
 

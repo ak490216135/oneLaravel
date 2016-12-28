@@ -19,6 +19,13 @@ h6, .h6 {
   color: #333;
 }
 
+a{
+    color: #6f5499;
+}
+a:hover{
+    color: #a99dbb;
+    font-style: normal;
+}
 
 /*
  * Override Bootstrap's default container.
@@ -36,7 +43,7 @@ h6, .h6 {
  */
 
 .blog-masthead {
-  background-color: #428bca;
+  background-color: #6f5499;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }

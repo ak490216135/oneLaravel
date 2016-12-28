@@ -1,3 +1,7 @@
 <?php
-Route::any('/', 'IndexController@index');
-Route::resource('article', 'ArticleController');
+Route::group(['middleware' => ['web']], function () {
+
+	Route::any('/', 'IndexController@index');
+	Route::resource('article', 'ArticleController');
+
+});
