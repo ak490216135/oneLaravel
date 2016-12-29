@@ -173,3 +173,15 @@ a:hover{
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+.pagination li a{
+  color: #6f5499;
+}
+.pagination .active span{
+  background: #6f5499;
+  border-color: #6f5499;
+}
+.pagination .active span:hover{
+  background: #6f5499;
+  border-color: #6f5499;
+}

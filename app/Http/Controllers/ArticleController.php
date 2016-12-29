@@ -21,8 +21,6 @@ class ArticleController extends Controller
 
 		$input = $request->all();
 
-		var_dump($_POST);
-
 	    $article_insert = DB::table('article')->insert(
 	    	[
 	    		'title' => 'ttt',
@@ -31,7 +29,7 @@ class ArticleController extends Controller
 	    );
 
 	    if ($article_insert) {
-	        //return redirect('/');
+	        return redirect('/');
 	    } else {
 	        return redirect()->back()->withInput()->withErrors('保存失败！');
 	    }
