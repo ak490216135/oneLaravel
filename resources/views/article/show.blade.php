@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="content">
-                    {{ $article->content }}
+                    <?php echo $article->content; ?>
                 </div>
 
             </div><!-- /.blog-main -->

@@ -21,10 +21,14 @@ class ArticleController extends Controller
 
 		$input = $request->all();
 
+		var_dump($input);
+
 	    $article_insert = DB::table('article')->insert(
 	    	[
-	    		'title' => 'ttt',
-	    		'content' => 'contenttttttt'
+	    		'title' => $input['title'],
+	    		'description' => $input['description'],
+	    		'date' => time(),
+	    		'content' => $input['content']
 	    	]
 	    );
 
