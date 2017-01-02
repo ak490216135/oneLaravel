@@ -35,7 +35,7 @@ class ArticleController extends Controller
 	        return redirect('/');
 	    } else {
 	    	// 存储失败
-	        return redirect('/')->with('error', '存储失败！');
+            return redirect()->back()->withInput()->withErrors('存储失败！');
 	    }
 	}
 	// 修改页面
