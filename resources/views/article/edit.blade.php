@@ -35,36 +35,37 @@
                 <div>
 
 
-                    <form action="{{ url('article') }}" method="POST" class="form-horizontal" role="form">
+                    <form action="{{ url('article/'.$article->id) }}" method="POST" class="form-horizontal" role="form">
+                      {{ method_field('PATCH') }}
                       {!! csrf_field() !!}
                       <div class="form-group">
                         <label for="title" class="col-sm-2 text-right">标题 :</label>
                         <div class="col-sm-10">
-                          <input type="标题" name="title" class="form-control" id="title" placeholder="标题">
+                          <input type="标题" name="title" class="form-control" id="title" placeholder="标题" value="{{ $article->title }}">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="tag" class="col-sm-2 text-right">TAG :</label>
                         <div class="col-sm-6">
-                          <input type="tag" name="tag" class="form-control" id="tag" placeholder="TAG">
+                          <input type="tag" name="tag" class="form-control" id="tag" placeholder="TAG" value="{{ $article->tag }}">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="description" class="col-sm-2 text-right">简介 :</label>
                         <div class="col-sm-10">
-                          <input type="description" name="description" class="form-control" id="description" placeholder="简介">
+                          <input type="description" name="description" class="form-control" id="description" placeholder="简介" value="{{ $article->description }}">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="content" class="col-sm-2 text-right">正文 :</label>
                         <div class="col-sm-10">
-                          <script id="editor" name="content" type="text/plain" style="min-height: 600px;"></script>
+                          <script id="editor" name="content" type="text/plain" style="min-height: 600px;"><?php echo $article->content; ?></script>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-block btn-default">发布</button>
+                          <button type="submit" class="btn btn-block btn-default">修改</button>
                         </div>
                       </div>
                     </form>

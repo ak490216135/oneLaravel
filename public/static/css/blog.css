@@ -147,7 +147,9 @@ a:hover{
  */
 
 .blog-post {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #6f5499;
 }
 .blog-post-title {
   margin-bottom: 5px;

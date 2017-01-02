@@ -25,8 +25,15 @@
                 <div class="blog-post">
                     <h2 class="blog-post-title"><a href="/article/{{ $v->id }}">{{ $v->title }}</a></h2>
                     <p class="blog-post-meta">{{ $v->date }}</p>
-
                     <p>{{ $v->description }}</p>
+                    <div>
+                        <a href="{{ url('article/'.$v->id.'/edit') }}" class="btn btn-success">编辑</a>
+                        <form action="{{ url('article/'.$v->id) }}" method="POST" style="display: inline;">  
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-danger">删除</button>
+                        </form>  
+                    </div>
                 </div><!-- /.blog-post -->
 
                 @endforeach
