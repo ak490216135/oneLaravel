@@ -22,9 +22,21 @@ class ArticleController extends Controller
 	public function store(Requests\StoreArticleRequest $request){
 
 		$input = $request->all();
+		// tag是否存在
+		if (empty($input['tag'])) {
+			$input['tag'] = '';
+		}else{
+			$tag = DB::table('tag')->where('name', $input['tag'])->first();
+			if(empty($tag)){
+				DB::table('tag')->insert([
+					'name' => $input['tag']
+				]);
+			}
+		}
 	    $article_insert = DB::table('article')->insert(
 	    	[
 	    		'title' => $input['title'],
+	    		'tag' => $input['tag'],
 	    		'description' => $input['description'],
 	    		'date' => time(),
 	    		'content' => $input['content']
@@ -47,14 +59,26 @@ class ArticleController extends Controller
 	// 修改提交
 	public function update(Requests\StoreArticleRequest $request, $id){
 		$input = $request->all();
+		// tag是否存在
+		if (empty($input['tag'])) {
+			$input['tag'] = '';
+		}else{
+			$tag = DB::table('tag')->where('name', $input['tag'])->first();
+			if(empty($tag)){
+				DB::table('tag')->insert([
+					'name' => $input['tag']
+				]);
+			}
+		}
 		$article = DB::table('article')->where('id', $id)->update(
-			[ 
+			[
 				'title' => $input['title'],
 				'tag' => $input['tag'],
 				'description' => $input['description'],
 				'content' => $input['content']
 			]
 		);
+
         if ($article) {
             return redirect('/');
         } else {

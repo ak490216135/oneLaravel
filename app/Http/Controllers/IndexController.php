@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
 	// 首页
 	public function index(){
-		//$article = DB::table('article')->orderBy('id', 'desc')->get();
+		// 所有文章
 		$article = DB::table('article')->orderBy('id', 'desc')->paginate(10);
 		foreach ($article as $k => $v) {
 			$article[$k]->date = date('Y-m-d H:i:s', $v->date);
