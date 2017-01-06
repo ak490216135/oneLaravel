@@ -26,7 +26,7 @@
 
                   @foreach ($tag as $v)
 
-                  <li><a href="{{ url('tag/'.$v->id) }}">{{ $v->name }}</a></li>
+                  <li><a href="#">{{ $v->name }}</a></li>
 
                   @endforeach
 
